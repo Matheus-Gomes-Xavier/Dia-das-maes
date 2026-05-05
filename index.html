@@ -133,7 +133,7 @@
       border-left: 4px solid var(--rose-light);
     }
 
-    /* ── MEMORIES SECTION ── */
+    /* ── Seção das memórias ── */
     .memories-section {
       background: var(--rose-pale);
       padding: clamp(48px, 10vw, 100px) clamp(16px, 6vw, 60px);
@@ -187,72 +187,7 @@
       box-shadow: 0 8px 28px rgba(214, 51, 108, 0.25);
     }
 
-    /* ── MESSAGE BOX ── */
-    .msg-section {
-      padding: clamp(48px, 10vw, 80px) clamp(16px, 6vw, 40px);
-    }
-
-    .mensagem-box {
-      background: #fff;
-      border-radius: var(--radius);
-      max-width: 620px;
-      margin: 0 auto;
-      padding: clamp(24px, 5vw, 40px);
-      box-shadow: var(--shadow);
-    }
-
-    .mensagem-box h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.3rem, 3.5vw, 1.8rem);
-      color: var(--rose);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .mensagem-box textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 10px;
-      border: 1.5px solid #f2c0d0;
-      resize: vertical;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      font-family: 'Lato', sans-serif;
-      color: var(--text-dark);
-      background: var(--rose-soft);
-      transition: border-color 0.2s ease;
-      outline: none;
-      min-height: 120px;
-    }
-
-    .mensagem-box textarea:focus {
-      border-color: var(--rose);
-    }
-
-    .mensagem-box .btn {
-      width: 100%;
-      margin-top: 16px;
-    }
-
-    /* ── MESSAGES LIST ── */
-    #mensagensExibidas {
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 0 clamp(16px, 6vw, 40px) clamp(48px, 8vw, 80px);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .msg-card {
-      background: var(--rose);
-      color: #fff;
-      border-radius: 12px;
-      padding: 14px 18px;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      line-height: 1.6;
-      box-shadow: 0 4px 14px rgba(214, 51, 108, 0.2);
-      animation: fadeIn 0.5s ease both;
-    }
+  
 
     /* ── LIGHTBOX ── */
     #lightbox {
@@ -275,7 +210,7 @@
       box-shadow: 0 16px 60px rgba(0,0,0,0.5);
     }
 
-    /* ── HEARTS ── */
+    /* ── Corações ── */
     .heart {
       position: fixed;
       width: clamp(14px, 3vw, 22px);
@@ -353,13 +288,13 @@
 </head>
 <body>
 
-  <!-- HERO -->
+  <!-- hero -->
   <section class="hero">
     <h1>Feliz Dia das Mães! 💐</h1>
     <p>Mãe, você é a razão do meu sorriso, da minha força e do meu amor. Obrigado por tudo!</p>
     <img
       class="hero-img"
-      src="WhatsApp Image 2025-05-11 at 00.15.52.jpeg"
+      src="img/maes1.jpeg"
       alt="Imagem de Dia das Mães"
       onclick="abrirLightbox(this.src)"
     >
@@ -373,7 +308,7 @@
     <audio id="musica" src="WhatsApp Audio 2025-05-11 at 10.37.12.mp3" loop></audio>
   </section>
 
-  <!-- MEMORIES -->
+  <!-- Memórias -->
   <section class="memories-section">
     <div class="memories-inner">
       <div class="text-box">
@@ -389,24 +324,14 @@
         </p>
       </div>
       <div class="image-gallery">
-        <img src="WhatsApp Image 2025-05-11 at 09.54.52.jpeg"      alt="Foto 1" onclick="abrirLightbox(this.src)">
-        <img src="WhatsApp Image 2025-05-11 at 09.56.03 (1).jpeg"  alt="Foto 2" onclick="abrirLightbox(this.src)">
-        <img src="WhatsApp Image 2025-05-11 at 09.56.03.jpeg"      alt="Foto 3" onclick="abrirLightbox(this.src)">
-        <img src="WhatsApp Image 2025-05-11 at 10.05.21.jpeg"      alt="Foto 4" onclick="abrirLightbox(this.src)">
+        <img src="img/vovo1.jpeg"      alt="Foto 1" onclick="abrirLightbox(this.src)">
+        <img src="img/maes.jpeg"  alt="Foto 2" onclick="abrirLightbox(this.src)">
+        <img src="img/mae.jpeg"      alt="Foto 3" onclick="abrirLightbox(this.src)">
+        <img src="img/maes2.jpeg"      alt="Foto 4" onclick="abrirLightbox(this.src)">
       </div>
     </div>
   </section>
 
-  <!-- MESSAGE FORM -->
-  <section class="msg-section">
-    <div class="mensagem-box">
-      <h2>Deixe sua mensagem 💬</h2>
-      <textarea id="mensagemInput" rows="4" placeholder="Escreva algo bonito aqui..."></textarea>
-      <button class="btn" onclick="enviarMensagem()">Enviar</button>
-    </div>
-  </section>
-
-  <div id="mensagensExibidas"></div>
 
   <!-- LIGHTBOX -->
   <div id="lightbox" onclick="fecharLightbox()">
@@ -433,7 +358,7 @@
       document.getElementById("lightbox").style.display = "none";
     }
 
-    // Floating hearts
+    // Corações flutuantes
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
@@ -443,19 +368,6 @@
       setTimeout(() => heart.remove(), 6000);
     }, 600);
 
-    function enviarMensagem() {
-      const texto = document.getElementById("mensagemInput").value.trim();
-      if (texto !== "") {
-        const mensagensDiv = document.getElementById("mensagensExibidas");
-        const card = document.createElement("div");
-        card.className = "msg-card";
-        card.innerText = texto;
-        mensagensDiv.prepend(card);
-        document.getElementById("mensagemInput").value = "";
-      } else {
-        alert("Por favor, escreva uma mensagem antes de enviar!");
-      }
-    }
   </script>
 </body>
 </html>
